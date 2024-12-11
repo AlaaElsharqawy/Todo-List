@@ -1,0 +1,130 @@
+:root {
+  --main-color: #36b6f4;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--main-color);
+}
+
+.add-title {
+  background-color: var(--main-color);
+  padding: 10px 35px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.custom-input:focus {
+  box-shadow: 0 0 0 5px #36b5f47f;
+  border: none !important;
+}
+
+.task-list {
+  margin-top: 4.375rem;
+}
+
+.task-list .task-name {
+  cursor: pointer;
+  position: relative;
+}
+
+.task-list .task-name::after {
+  content: "click to completed";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: green;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 10px;
+  text-wrap: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.task-list .task-name:hover::after {
+  opacity: 1;
+}
+
+.task-list .icons {
+  color: var(--main-color);
+  cursor: pointer;
+}
+
+/* ------------loading--------- */
+
+.loader {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  position: relative;
+  border: 3px solid;
+  border-color: #de3500 #0000 #fff #0000;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: 1s rotate linear infinite;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  top: 0;
+  left: 0;
+  position: absolute;
+  border: 10px solid transparent;
+  border-bottom-color: #fff;
+  transform: translate(-10px, 19px) rotate(-35deg);
+}
+.loader:after {
+  border-color: #de3500 #0000 #0000 #0000;
+  transform: translate(32px, 3px) rotate(-35deg);
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0 0 0/0.5);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ----------progress------- */
+
+#progressBar {
+  height: 0.625rem;
+  background-color: #36b6f4;
+  border-radius: 0.3125rem;
+  margin-top: 0.625rem;
+  overflow: hidden;
+}
+#progress {
+  height: inherit;
+  background-color: #07a5f4;
+  width: 0%;
+  transition: width 0.7s;
+}
+
+.status-number {
+  width: 3.125rem;
+  height: 3.125rem;
+  border: 1px solid white;
+  background-color: #07a5f4;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 0.75rem;
+}
